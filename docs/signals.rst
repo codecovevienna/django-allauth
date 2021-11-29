@@ -58,6 +58,7 @@ allauth.socialaccount
 
 - ``allauth.socialaccount.signals.social_account_added(request, sociallogin)``
     Sent after a user connects a social account to a their local account.
+    Also will be sent if a new social account is created after th first login.
 
 - ``allauth.socialaccount.signals.social_account_updated(request, sociallogin)``
     Sent after a social account has been updated. This happens when a user

@@ -1,3 +1,4 @@
+
 from django.contrib import messages
 from django.forms import ValidationError
 from django.http import HttpResponseRedirect
@@ -170,6 +171,9 @@ def _complete_social_login(request, sociallogin):
     else:
         # New social user
         ret = _process_signup(request, sociallogin)
+        signals.social_account_added.send(
+            sender=SocialLogin, request=request, sociallogin=sociallogin
+        )
     return ret
 
 
